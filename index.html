@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Nested Dropdown | iKCoder</title>
+      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   </head>
+   <body>
+      <nav>
+         <div class="drop-btn">
+            Drop down <span class="fas fa-caret-down"></span>
+         </div>
+         <div class="tooltip"></div>
+         <div class="wrapper">
+            <ul class="menu-bar">
+               <li>
+                  <a href="#">
+                     <div class="icon">
+                        <span class="fas fa-home"></span>
+                     </div>
+                     Home 
+                  </a>
+               </li>
+               <li class="setting-item">
+                  <a href="#">
+                     <div class="icon">
+                        <span class="fas fa-cog"></span>
+                     </div>
+                     Settings <i class="fas fa-angle-right"></i>
+                  </a>
+               </li>
+               <li class="help-item">
+                  <a href="#">
+                     <div class="icon">
+                        <span class="fas fa-question-circle"></span>
+                     </div>
+                    Report
+                  </a>
+               </li>
+               <li>
+                  <a href="#">
+                     <div class="icon">
+                        <span class="fas fa-user"></span>
+                     </div>
+                     About us 
+                  </a>
+               </li>
+            </ul>
+            <ul class="setting-drop">
+               <li class="arrow back-setting-btn"><span class="fas fa-arrow-left"></span>Settings</li>
+               <li>
+                  <a href="#">
+                     <div class="icon">
+                        <span class="fas fa-user"></span>
+                     </div>
+                     Personal info 
+                  </a>
+               </li>
+               <li>
+                  <a href="#">
+                     <div class="icon">
+                        <span class="fas fa-lock"></span>
+                     </div>
+                     Change password 
+                  </a>
+               </li>
+               <li>
+                  <a href="#">
+                     <div class="icon">
+                        <span class="fas fa-address-book"></span>
+                     </div>
+                     Activity log 
+                  </a>
+               </li>
+
+            </ul>
+         </div>
+      </nav>
+      <script>
+         const drop_btn = document.querySelector(".drop-btn span");
+         const tooltip = document.querySelector(".tooltip");
+         const menu_wrapper = document.querySelector(".wrapper");
+         const menu_bar = document.querySelector(".menu-bar");
+         const setting_drop = document.querySelector(".setting-drop");
+         const setting_item = document.querySelector(".setting-item");
+         const setting_btn = document.querySelector(".back-setting-btn");
+           drop_btn.onclick = (()=>{
+             menu_wrapper.classList.toggle("show");
+             tooltip.classList.toggle("show");
+           });
+           setting_item.onclick = (()=>{
+             menu_bar.style.marginLeft = "-400px";
+             setTimeout(()=>{
+               setting_drop.style.display = "block";
+             }, 100);
+           });
+           setting_btn.onclick = (()=>{
+             menu_bar.style.marginLeft = "0px";
+             setting_drop.style.display = "none";
+           });
+      </script>
+   </body>
+</html>
